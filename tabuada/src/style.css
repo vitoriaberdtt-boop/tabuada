@@ -1,355 +1,258 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 * {
     box-sizing: border-box;
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: 0;
+    padding: 0;
 }
-/*mobile*/
+
+body {
+    background: linear-gradient(135deg, #1a2847 0%, #2d3e5f 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #2d3e5f;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+/* Container principal */
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Título */
+#titulo {
+    background: linear-gradient(135deg, #a8c8f0 0%, #8fbae5 100%);
+    border: none;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    margin: 0 0 2rem 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+#titulo h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #1a2847;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+/* Fieldset principal */
+#tab {
+    background: linear-gradient(135deg, #b8d8f5 0%, #a8c8f0 100%);
+    border: none;
+    border-radius: 16px;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Section dentro do fieldset */
+#tab section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#tab > section > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Parágrafo com label */
+#tab p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 500;
+    color: #1a2847;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* Input de número */
+#txtn {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #5f87b5;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #2d3e5f;
+    transition: all 0.3s ease;
+}
+
+#txtn:focus {
+    outline: none;
+    border-color: #1a2847;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(26, 40, 71, 0.1);
+}
+
+/* Botão */
+#txtb {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #5f87b5 0%, #4d7099 100%);
+    color: white;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(95, 135, 181, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#txtb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(95, 135, 181, 0.4);
+    background: linear-gradient(135deg, #4d7099 0%, #3d5a7d 100%);
+}
+
+#txtb:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(95, 135, 181, 0.3);
+}
+
+/* Container de resultados */
+#digitenum {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 100px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #2d3e5f;
+    line-height: 1.8;
+    border-left: 4px solid #5f87b5;
+}
+
+#digitenum:empty::before {
+    content: "Resultados aparecerão aqui...";
+    color: #a8c8f0;
+    font-style: italic;
+}
+
+/* Select da tabuada */
+#seltab {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #5f87b5;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #2d3e5f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f87b5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+#seltab:focus {
+    outline: none;
+    border-color: #1a2847;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(26, 40, 71, 0.1);
+}
+
+/* Responsividade */
 @media (max-width: 480px) {
-h1{
-    margin: auto;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-
-}
-body {
-    background-color: rgb(41, 46, 94);
-}
-#titulo {
-    background-color: rgb(162, 200, 243);
-    border-radius: 1rem;
-    margin: auto;
-    padding: 0.1rem;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    gap: 0.8rem;
-}
-#tab {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        padding: 0.5rem;
-        margin: 0.5rem auto;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        display: grid;
-        gap: 0.8rem;
-    }
-
-    #txtn,
-    #seltab {
-        width: 100%;              
-        text-align: left;
-        border-radius: 0.5rem;
-        margin: 0.5rem auto;  
-    }
-
-    #txtb {
-        width: 100%;
-        border-radius: 0.5rem;
-        background-color: rgb(95, 135, 181);
-        color: white;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-
-    p {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;      
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-        text-align: justify;
-    }
-
-    #digitenum {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;
-        margin: 0rem auto;
-        padding: 1.8rem;
-        text-align: left;
-        align-items: center;
-    }
-}
-
-/*tablet*/
-@media (min-width: 481px) and (max-width: 768px){
-    h1{
-    margin: auto;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-
-}
-body {
-    background-color: rgb(41, 46, 94);
-}
-#titulo {
-    background-color: rgb(162, 200, 243);
-    border-radius: 1rem;
-    margin: auto;
-    padding: 0.1rem;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    gap: 0.8rem;
-}
-#tab {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        padding: 0.5rem;
-        margin: 0.5rem auto;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        display: grid;
-        gap: 0.8rem;
-    }
-
-    #txtn,
-    #seltab {
-        width: 100%;              
-        text-align: left;
-        border-radius: 0.5rem;
-        margin: 0.5rem auto;  
-    }
-
-    #txtb {
-        width: 100%;
-        border-radius: 0.5rem;
-        background-color: rgb(95, 135, 181);
-        color: white;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-
-    p {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;      
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-        text-align: justify;
-    }
-
-    #digitenum {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;
-        margin: 0rem auto;
-        padding: 1.5rem;
-        text-align: justify;
-        align-items: center;
-    }
-}
-
-/*laptop*/
-@media (min-width: 769px) and (max-width: 1024px) {
-    h1{
-    margin: auto;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-        font-size: 2.3rem;
-}
-body {
-    background-color: rgb(41, 46, 94);
-}
-#tab {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        padding: 5rem;
-        margin: 0.5rem auto;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        display: grid;
-        gap: 0.8rem;
-    }
-
-#titulo {
-    background-color: rgb(162, 200, 243);
-    border-radius: 1rem;
-    margin: auto;
-    padding: 0.1rem;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    }
-
-    #txtn,
-    #seltab {
-        width: 100%;              
-        text-align: left;
-        border-radius: 0.5rem;
-        margin: 0.5rem auto;  
-    }
-
-    #txtb {
-        width: 100%;
-        border-radius: 0.5rem;
-        background-color: rgb(95, 135, 181);
-        color: white;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-
-    p {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;      
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-        text-align: justify;
-    }
-
-    #digitenum {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;
-        margin: 0rem auto;
-        padding: 1.5rem;
-        text-align: justify;
-        align-items: center;
-    }
-}
-/*desktop*/
-@media (min-width: 1025px) and (max-width: 1200px) {
-    h1{
-    margin: auto;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-    font-size: 2.5rem;
-}
-body {
-    background-color: rgb(41, 46, 94);
-}
-#tab {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        padding: 7rem;
-        margin: 0.5rem auto;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        display: grid;
-        gap: 0.8rem;
+    body {
+        padding: 1rem 0.5rem;
     }
 
     #titulo {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        width: 90%;
-        padding: 0.5rem;
-        margin: 0.5rem auto;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        display: grid;
-        gap: 0.8rem;
+        padding: 1.5rem 1rem;
+        margin: 0 0 1.5rem 0;
     }
+
+    #titulo h1 {
+        font-size: 1.8rem;
+    }
+
+    #tab {
+        padding: 1.2rem;
+    }
+
+    #tab section {
+        gap: 1rem;
+    }
+
     #txtn,
-    #seltab {
-        width: 100%;              
-        text-align: left;
-        border-radius: 0.5rem;
-        margin: 0.5rem auto;  
-    }
-
+    #seltab,
     #txtb {
-        width: 100%;
-        border-radius: 0.5rem;
-        background-color: rgb(95, 135, 181);
-        color: white;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-
-    p {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;      
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-        text-align: justify;
+        padding: 0.8rem 0.9rem;
+        font-size: 0.95rem;
     }
 
     #digitenum {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;
-        margin: 0rem auto;
-        padding: 2rem;
-        text-align: justify;
-        align-items: center;
-    }
-  
-}
-
-/*monitores grandes*/
-@media (min-width: 1201px) {
-    h1{
-    margin: auto;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-    font-size: 3rem;
-}
-
-body {
-    background-color: rgb(41, 46, 94);
-}
-
-#tab {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        padding: 8rem;
-        margin: 0.5rem auto;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        display: grid;
-        gap: 20%;
-    }
-
-    #titulo {
-        background-color: rgb(162, 200, 243);
-        border-radius: 1rem;
-        width: 90%;
-        padding: 2rem;
-        margin: 0.5rem auto;
-        text-align: center;
-        display: grid;
-        gap: 8rem;
-    }
-    #txtn,
-    #seltab {
-        width: 110%;              
-        text-align: left;
-        align-items: center;
-        border-radius: 0.5rem;
-        margin: 0.5rem auto; 
-    }
-
-    #txtb {
-        width: 110%;
-        border-radius: 0.5rem;
-        background-color: rgb(95, 135, 181);
-        color: white;
-        margin: 0rem auto;
-        padding: 0rem auto;
-    }
-
-    p {
-        font-family: 'Mulish', sans-serif;
-        font-size: 2rem;      
-        margin: 0rem auto;
-        padding: 0rem;
-        text-align: justify;
-        align-items: center;
-    }
-
-    #digitenum {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1.5rem;
-        margin: 0rem auto;
         padding: 1rem;
-        text-align: justify;
-        align-items: center;
+        font-size: 0.85rem;
+        min-height: 80px;
     }
-  
+}
+
+@media (min-width: 769px) {
+    body {
+        padding: 3rem 2rem;
+    }
+
+    #titulo {
+        padding: 3rem 2.5rem;
+        margin: 0 0 2.5rem 0;
+    }
+
+    #titulo h1 {
+        font-size: 3rem;
+    }
+
+    #tab {
+        padding: 3rem;
+    }
+
+    #tab section {
+        gap: 2rem;
+    }
+
+    #tab > section > div:first-child {
+        gap: 1rem;
+    }
+
+    #digitenum {
+        padding: 2rem;
+        font-size: 1.05rem;
+        min-height: 150px;
+    }
+}
+
+@media (min-width: 1201px) {
+    #app {
+        max-width: 700px;
+    }
+
+    #titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    #tab {
+        padding: 3.5rem;
+    }
+
+    #digitenum {
+        padding: 2.5rem;
+        font-size: 1.1rem;
+        line-height: 2;
+    }
 }
